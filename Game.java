@@ -15,27 +15,38 @@ public class Game{
         System.out.println("___");
         System.out.println("");
         System.out.println(spellOut(answer));
+        char[] key = toCheck(answer);
         int points = 0;
         int lose = 6;
         String results = "";
-        while (points < lose || results.equals(answer))
+        while (points < lose)
         {
             System.out.println("Please type your guess!");
             String newGuess = scanner.nextLine();
             boolean replace = guess(answer, newGuess);
             if(replace = true)
             {
+                char[] set = new char [answer.length()-1];
                 for(int i = 0; i<answer.length();i++)
                 {
                     if(newGuess.equals(answer.substring(i,i+1)))
                     {
-                        results+=newGuess;
+                        current+=newGuess;
+                        
                     }
                     else
                     {
-                        results+= "- ";
+                        current+= "- ";
+
                     }
                 }
+                System.out.println(current);
+            }
+            if (results.equals(answer))
+            {
+                System.out.println("You found the word!");
+                System.out.println(results);
+                break;
             }
         }
     
@@ -63,6 +74,11 @@ public class Game{
         {
             return "Spooky";
         }
+    }
+    public static char[] toCheck(String a)
+    {
+        char[] b = a.toCharArray();
+        return b;
     }
     public static String spellOut(String word)
     {
