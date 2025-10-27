@@ -71,6 +71,7 @@ public class Game{
             System.out.println("|/ \\");
             System.out.println("____");
         }
+        System.out.println("The word was " + answer + "!");
     
     }
     public static String wordPick()
